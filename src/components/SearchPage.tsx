@@ -18,7 +18,9 @@ export function SearchPage({ onCustomSubmit, onCuratedSelect }: Props) {
             Focus Flow
           </p>
           <h1 className="text-3xl font-semibold text-white sm:text-4xl">
-            오늘 작업에 어울리는 플레이리스트를 만들어드릴게요
+            오늘 작업에 어울리는 플레이리스트를
+            <br />
+            만들어드릴게요
           </h1>
           <p className="mt-3 text-sm text-muted">
             직접 프롬프트를 적어도 되고, 오른쪽 큐레이션 카드를 눌러도 돼요.
@@ -26,14 +28,16 @@ export function SearchPage({ onCustomSubmit, onCuratedSelect }: Props) {
         </div>
 
         <div className="mt-12 grid grid-cols-1 items-start gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-8">
-          <section className="glass rounded-3xl border border-line p-6 md:sticky md:top-8">
+          <section className="md:sticky md:top-8">
             <div className="mb-4 flex items-center gap-2">
               <span className="rounded-full border border-lime/30 bg-lime/5 px-3 py-1 text-xs uppercase tracking-wide text-lime">
                 1
               </span>
               <h2 className="text-sm font-semibold text-white">커스텀 프롬프트로 만들기</h2>
             </div>
-            <PromptSearch onSubmit={onCustomSubmit} />
+            <div className="glass rounded-3xl border border-line p-6">
+              <PromptSearch onSubmit={onCustomSubmit} />
+            </div>
           </section>
 
           <section className="@container">
