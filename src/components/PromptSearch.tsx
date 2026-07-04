@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
 
 const EXAMPLES = [
-  '펑키함을 살린 밴드 노래 플레이리스트',
-  '비가 오는 날 슬프기보단 기쁜 마음으로 들을 수 있는 프랑스 노래 플레이리스트',
-  '야근할 때 집중력 올려주는 로파이 플레이리스트',
-  '드라이브하기 좋은 신나는 시티팝 플레이리스트',
-  '카페에서 듣기 좋은 잔잔한 재즈 플레이리스트',
+  '아이데이션 회의 30분 전인데 머리가 하얗게 멈췄을 때 듣는 뇌파 자극 딥 하우스',
+  "클라이언트가 '느낌적인 느낌'으로 수정해 달라고 해서, 깊은 화를 누르며 작업할 때 듣는 강렬한 메탈",
+  '새벽 2시, 사무실에 나 혼자 남아 제안서 폰트 자간과 줄 간격 맞출 때 위로가 되는 잔잔한 인디 음악',
 ]
 
 interface Props {
@@ -58,12 +56,12 @@ export function PromptSearch({ onSubmit }: Props) {
       </form>
 
       <div className="mt-4 flex flex-wrap gap-2">
-        {EXAMPLES.slice(0, 3).map((ex) => (
+        {EXAMPLES.map((ex) => (
           <button
             key={ex}
             type="button"
-            onClick={() => onSubmit(ex)}
-            className="rounded-full border border-line px-3 py-1.5 text-xs text-muted transition hover:border-pink/50 hover:text-pink"
+            onClick={() => setValue(ex)}
+            className="rounded-full border border-line px-3.5 py-1.5 text-xs text-muted transition-colors hover:border-pink/50 hover:bg-pink/10 hover:text-pink"
           >
             {ex}
           </button>
