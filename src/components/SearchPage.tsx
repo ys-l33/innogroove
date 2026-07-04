@@ -27,18 +27,21 @@ export function SearchPage({ onCustomSubmit, onCuratedSelect }: Props) {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 items-start gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-8">
+        <div className="mt-12 grid grid-cols-1 items-start gap-6 md:grid-cols-[minmax(0,2fr)_1px_minmax(0,3fr)] md:gap-8">
           <section className="md:sticky md:top-8">
-            <div className="mb-4 flex items-center gap-2">
+            <div className="mb-1 flex items-center gap-2">
               <span className="rounded-full border border-lime/30 bg-lime/5 px-3 py-1 text-xs uppercase tracking-wide text-lime">
                 1
               </span>
               <h2 className="text-sm font-semibold text-white">커스텀 프롬프트로 만들기</h2>
             </div>
+            <p className="mb-6 text-sm text-muted">지금 어떤 피드백을 받고 무슨 작업 중이신가요?</p>
             <div className="glass rounded-3xl border border-line p-6">
               <PromptSearch onSubmit={onCustomSubmit} />
             </div>
           </section>
+
+          <div aria-hidden className="hidden self-stretch bg-white/10 md:block" />
 
           <section className="@container">
             <CuratedSection onSelect={onCuratedSelect} />

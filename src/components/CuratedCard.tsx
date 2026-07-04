@@ -9,9 +9,9 @@ interface Props {
 export function CuratedCard({ theme, onSelect }: Props) {
   if (theme.variant === 'file-hell') {
     return (
-      <div className="glass flex h-full flex-col rounded-3xl border border-line p-5">
+      <div className="glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
         <CardHeader theme={theme} />
-        <div className="mt-4 flex flex-1 flex-col gap-1.5">
+        <div className="flex flex-1 flex-col gap-1.5">
           {theme.fileStates?.map((fs, i) => (
             <button
               key={fs.id}
@@ -40,7 +40,7 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   if (theme.variant === 'boost') {
     return (
-      <div className="boost-card glass relative flex h-full flex-col overflow-hidden rounded-3xl border border-pink/40 p-5">
+      <div className="boost-card glass relative flex h-full flex-col gap-4 overflow-hidden rounded-3xl border border-pink/40 p-5">
         <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-pink/25 blur-3xl" />
         <CardHeader theme={theme} />
         <button
@@ -56,7 +56,7 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   if (theme.variant === 'trend') {
     return (
-      <div className="glass flex h-full flex-col rounded-3xl border border-line p-5">
+      <div className="glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
         <CardHeader theme={theme} />
         <button
           type="button"
@@ -71,7 +71,7 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   // celebrate
   return (
-    <div className="glass flex h-full flex-col rounded-3xl border border-line p-5">
+    <div className="glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
       <CardHeader theme={theme} />
       <ConfettiButton
         label={theme.ctaLabel!}
