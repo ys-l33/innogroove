@@ -1,9 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const EXAMPLES = [
-  '아이데이션 회의 30분 전인데 머리가 하얗게 멈췄을 때 듣는 뇌파 자극 딥 하우스',
-  "클라이언트가 '느낌적인 느낌'으로 수정해 달라고 해서, 깊은 화를 누르며 작업할 때 듣는 강렬한 메탈",
-  '새벽 2시, 사무실에 나 혼자 남아 제안서 폰트 자간과 줄 간격 맞출 때 위로가 되는 잔잔한 인디 음악',
+  {
+    label: '🤯 아이디어 고갈, 뇌파 자극 딥 하우스',
+    prompt: '아이데이션 회의 30분 전인데 머리가 하얗게 멈췄을 때 듣는 뇌파 자극 딥 하우스',
+  },
+  {
+    label: "🔥 '느낌적인 느낌이 대체 뭐죠?' 분노 조절 메탈",
+    prompt: "클라이언트가 '느낌적인 느낌'으로 수정해 달라고 해서, 깊은 화를 누르며 작업할 때 듣는 강렬한 메탈",
+  },
+  {
+    label: '🌙 새벽 2시, 홀로 사무실에 남은 나를 위로해줄 인디',
+    prompt: '새벽 2시, 사무실에 나 혼자 남아 제안서 폰트 자간과 줄 간격 맞출 때 위로가 되는 잔잔한 인디 음악',
+  },
 ]
 
 interface Props {
@@ -12,18 +21,11 @@ interface Props {
 
 export function PromptSearch({ onSubmit }: Props) {
   const [value, setValue] = useState('')
-  const [exampleIndex, setExampleIndex] = useState(0)
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setExampleIndex((i) => (i + 1) % EXAMPLES.length)
-    }, 3200)
-    return () => clearInterval(id)
-  }, [])
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    const prompt = value.trim() || EXAMPLES[exampleIndex]
+    const prompt = value.trim()
+    if (!prompt) return
     onSubmit(prompt)
   }
 
@@ -43,7 +45,6 @@ export function PromptSearch({ onSubmit }: Props) {
           <input
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            placeholder={EXAMPLES[exampleIndex]}
             className="min-w-0 flex-1 bg-transparent px-4 py-3 text-base text-white placeholder:text-muted-soft focus:outline-none"
           />
           <button
@@ -58,12 +59,12 @@ export function PromptSearch({ onSubmit }: Props) {
       <div className="mt-4 flex flex-wrap gap-2">
         {EXAMPLES.map((ex) => (
           <button
-            key={ex}
+            key={ex.prompt}
             type="button"
-            onClick={() => setValue(ex)}
+            onClick={() => setValue(ex.prompt)}
             className="rounded-full border border-line px-3.5 py-1.5 text-xs text-muted transition-colors hover:border-pink/50 hover:bg-pink/10 hover:text-pink"
           >
-            {ex}
+            {ex.label}
           </button>
         ))}
       </div>
