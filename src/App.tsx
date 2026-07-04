@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import type { Track } from './data/tracks'
 import { generatePlaylist, regeneratePlaylist, type PreferenceProfile } from './lib/matcher'
 import type { Platform, VersionPreference } from './lib/platformLinks'
@@ -63,12 +63,12 @@ function App() {
     setStage({ name: 'search' })
   }
 
-  if (stage.name === 'search') {
-    return <SearchPage onCustomSubmit={handleCustomSearch} onCuratedSelect={handleCuratedSelect} />
-  }
+  let content: ReactNode
 
-  if (stage.name === 'playlist') {
-    return (
+  if (stage.name === 'search') {
+    content = <SearchPage onCustomSubmit={handleCustomSearch} onCuratedSelect={handleCuratedSelect} />
+  } else if (stage.name === 'playlist') {
+    content = (
       <PlaylistScreen
         title={stage.title}
         origin={stage.origin}
@@ -79,26 +79,32 @@ function App() {
         onRestart={handleRestart}
       />
     )
-  }
-
-  if (stage.name === 'options') {
-    return (
+  } else if (stage.name === 'options') {
+    content = (
       <OptionsScreen
         tracks={stage.tracks}
         onProceed={(preference, platform) => handleProceed(stage, preference, platform)}
         onBack={() => setStage(stage.previous)}
       />
     )
+  } else {
+    content = (
+      <RedirectScreen
+        tracks={stage.tracks}
+        platform={stage.platform}
+        preference={stage.preference}
+        onBack={() => setStage(stage.previous)}
+        onRestart={handleRestart}
+      />
+    )
   }
 
   return (
-    <RedirectScreen
-      tracks={stage.tracks}
-      platform={stage.platform}
-      preference={stage.preference}
-      onBack={() => setStage(stage.previous)}
-      onRestart={handleRestart}
-    />
+    <div className="relative min-h-screen overflow-x-hidden">
+      <div className="mesh-bg pointer-events-none fixed inset-0 -z-10" />
+      <div className="noise-overlay" />
+      {content}
+    </div>
   )
 }
 
