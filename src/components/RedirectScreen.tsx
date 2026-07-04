@@ -47,7 +47,7 @@ export function RedirectScreen({ tracks, platform, preference, onBack, onRestart
         <button
           type="button"
           onClick={openAll}
-          className="rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-lime-soft"
+          className="neon-lime rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-lime-soft"
         >
           {links.length}곡 전체 새 탭으로 열기
         </button>

@@ -78,7 +78,7 @@ export function OptionsScreen({ tracks, onProceed, onBack }: Props) {
         type="button"
         disabled={!platform}
         onClick={() => platform && onProceed(preference, platform)}
-        className="mt-10 w-full rounded-full bg-lime px-5 py-3.5 text-sm font-semibold text-black transition enabled:hover:bg-lime-soft disabled:cursor-not-allowed disabled:opacity-30"
+        className="neon-lime mt-10 w-full rounded-full bg-lime px-5 py-3.5 text-sm font-semibold text-black transition enabled:hover:bg-lime-soft disabled:cursor-not-allowed disabled:opacity-30"
       >
         선택한 플랫폼으로 이동하기
       </button>

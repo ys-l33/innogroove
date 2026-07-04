@@ -101,7 +101,7 @@ export function PlaylistScreen({ title, origin, tracks, round, onRegenerate, onC
             <button
               type="button"
               onClick={() => onConfirm(tracks.filter((t) => !removedIds.has(t.id)))}
-              className="flex-1 rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-lime-soft sm:flex-none"
+              className="neon-lime flex-1 rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-lime-soft sm:flex-none"
             >
               네, 좋아요
             </button>

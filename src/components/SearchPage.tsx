@@ -1,6 +1,7 @@
 import type { CuratedSelection } from '../data/curatedThemes'
 import { PromptSearch } from './PromptSearch'
 import { CuratedSection } from './CuratedSection'
+import { MarqueeBanner } from './MarqueeBanner'
 
 interface Props {
   onCustomSubmit: (prompt: string) => void
@@ -11,6 +12,7 @@ export function SearchPage({ onCustomSubmit, onCuratedSelect }: Props) {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
       <div className="mesh-bg pointer-events-none fixed inset-0 -z-10" />
+      <div className="noise-overlay" />
 
       <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-14 sm:pt-20">
         <div className="mx-auto max-w-2xl text-center">
@@ -27,7 +29,11 @@ export function SearchPage({ onCustomSubmit, onCuratedSelect }: Props) {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 items-start gap-6 md:grid-cols-[minmax(0,2fr)_1px_minmax(0,3fr)] md:gap-8">
+        <div className="my-10">
+          <MarqueeBanner />
+        </div>
+
+        <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-[minmax(0,2fr)_1px_minmax(0,3fr)] md:gap-8">
           <section className="md:sticky md:top-8">
             <div className="mb-1 flex items-center gap-2">
               <span className="rounded-full border border-lime/30 bg-lime/5 px-3 py-1 text-xs uppercase tracking-wide text-lime">

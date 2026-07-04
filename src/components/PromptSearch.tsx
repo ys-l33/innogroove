@@ -48,7 +48,7 @@ export function PromptSearch({ onSubmit }: Props) {
           />
           <button
             type="submit"
-            className="shrink-0 rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-lime-soft active:scale-95"
+            className="neon-lime shrink-0 rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-lime-soft active:scale-95"
           >
             플레이리스트 만들기
           </button>

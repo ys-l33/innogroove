@@ -9,7 +9,7 @@ interface Props {
 export function CuratedCard({ theme, onSelect }: Props) {
   if (theme.variant === 'file-hell') {
     return (
-      <div className="glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
+      <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
         <CardHeader theme={theme} />
         <div className="flex flex-1 flex-col gap-1.5">
           {theme.fileStates?.map((fs, i) => (
@@ -40,13 +40,13 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   if (theme.variant === 'boost') {
     return (
-      <div className="boost-card glass relative flex h-full flex-col gap-4 overflow-hidden rounded-3xl border border-pink/40 p-5">
+      <div className="boost-card curated-card glass relative flex h-full flex-col gap-4 overflow-hidden rounded-3xl border border-pink/40 p-5">
         <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-pink/25 blur-3xl" />
         <CardHeader theme={theme} />
         <button
           type="button"
           onClick={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
-          className="relative mt-auto w-full rounded-full bg-pink px-5 py-3 text-sm font-bold tracking-wide text-black transition hover:bg-pink-soft active:scale-[0.98]"
+          className="neon-pink relative mt-auto w-full rounded-full bg-pink px-5 py-3 text-sm font-bold tracking-wide text-black transition hover:bg-pink-soft active:scale-[0.98]"
         >
           {theme.ctaLabel}
         </button>
@@ -56,12 +56,12 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   if (theme.variant === 'trend') {
     return (
-      <div className="glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
+      <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
         <CardHeader theme={theme} />
         <button
           type="button"
           onClick={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
-          className="mt-auto w-full rounded-full border border-lime/50 bg-lime/10 px-5 py-3 text-sm font-semibold text-lime transition hover:bg-lime/20"
+          className="neon-lime mt-auto w-full rounded-full border border-lime/50 bg-lime/10 px-5 py-3 text-sm font-semibold text-lime transition hover:bg-lime/20"
         >
           {theme.ctaLabel}
         </button>
@@ -71,13 +71,13 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   // celebrate
   return (
-    <div className="glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
+    <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
       <CardHeader theme={theme} />
       <ConfettiButton
         label={theme.ctaLabel!}
         onDone={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
         wrapperClassName="mt-auto"
-        className="w-full rounded-full bg-lime px-5 py-3 text-sm font-bold text-black transition hover:bg-lime-soft active:scale-[0.98]"
+        className="neon-lime w-full rounded-full bg-lime px-5 py-3 text-sm font-bold text-black transition hover:bg-lime-soft active:scale-[0.98]"
       />
     </div>
   )

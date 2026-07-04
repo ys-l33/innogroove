@@ -87,22 +87,180 @@ body {
   }
 }
 
+@keyframes card-glow-pulse-strong {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(241, 55, 179, 0.5), 0 0 55px -8px rgba(241, 55, 179, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(241, 55, 179, 0.7), 0 0 75px -6px rgba(241, 55, 179, 0.8);
+  }
+}
+
 .boost-card {
   animation: card-glow-pulse 2.6s ease-in-out infinite;
+}
+
+.boost-card:hover {
+  animation: card-glow-pulse-strong 1.2s ease-in-out infinite;
+}
+
+@keyframes mesh-drift {
+  0%,
+  100% {
+    background-position:
+      8% 8%,
+      92% 12%,
+      12% 92%,
+      92% 96%;
+    background-size:
+      50% 40%,
+      45% 40%,
+      55% 45%,
+      50% 40%;
+  }
+  50% {
+    background-position:
+      14% 16%,
+      84% 20%,
+      20% 86%,
+      86% 90%;
+    background-size:
+      60% 50%,
+      52% 48%,
+      65% 55%,
+      58% 48%;
+  }
 }
 
 .mesh-bg {
   background-color: #000;
   background-image:
-    radial-gradient(50% 40% at 10% 10%, rgba(168, 241, 27, 0.22), transparent 100%),
-    radial-gradient(45% 40% at 90% 15%, rgba(241, 55, 179, 0.16), transparent 100%),
-    radial-gradient(55% 45% at 15% 95%, rgba(139, 92, 246, 0.16), transparent 100%),
-    radial-gradient(50% 40% at 95% 100%, rgba(168, 241, 27, 0.12), transparent 100%);
+    radial-gradient(circle, rgba(168, 241, 27, 0.22), transparent 70%),
+    radial-gradient(circle, rgba(241, 55, 179, 0.16), transparent 70%),
+    radial-gradient(circle, rgba(139, 92, 246, 0.16), transparent 70%),
+    radial-gradient(circle, rgba(168, 241, 27, 0.12), transparent 70%);
   background-repeat: no-repeat;
+  background-position:
+    8% 8%,
+    92% 12%,
+    12% 92%,
+    92% 96%;
+  background-size:
+    50% 40%,
+    45% 40%,
+    55% 45%,
+    50% 40%;
+  animation: mesh-drift 26s ease-in-out infinite;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .glass {
   background: rgba(20, 20, 22, 0.55);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+}
+
+.neon-lime {
+  box-shadow:
+    0 0 14px 0 rgba(168, 241, 27, 0.35),
+    0 0 2px 0 rgba(168, 241, 27, 0.6);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.15s ease;
+}
+.neon-lime:hover {
+  box-shadow:
+    0 0 26px 4px rgba(168, 241, 27, 0.55),
+    0 0 6px 0 rgba(168, 241, 27, 0.8);
+}
+
+.neon-pink {
+  box-shadow:
+    0 0 14px 0 rgba(241, 55, 179, 0.35),
+    0 0 2px 0 rgba(241, 55, 179, 0.6);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.15s ease;
+}
+.neon-pink:hover {
+  box-shadow:
+    0 0 26px 4px rgba(241, 55, 179, 0.55),
+    0 0 6px 0 rgba(241, 55, 179, 0.8);
+}
+
+.curated-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+.curated-card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.hover-glow-lime:hover {
+  border-color: rgba(168, 241, 27, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(168, 241, 27, 0.35),
+    0 20px 45px -20px rgba(168, 241, 27, 0.45);
+}
+
+.hover-glow-pink:hover {
+  border-color: rgba(241, 55, 179, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(241, 55, 179, 0.4),
+    0 20px 45px -20px rgba(241, 55, 179, 0.5);
+}
+
+.marquee-band {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.marquee-track {
+  width: max-content;
+  animation: marquee-scroll 26s linear infinite;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-right: 3rem;
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh-bg,
+  .marquee-track,
+  .boost-card,
+  .boost-card:hover {
+    animation: none;
+  }
+  .curated-card:hover {
+    transform: none;
+  }
 }
