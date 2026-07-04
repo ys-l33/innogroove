@@ -167,9 +167,9 @@ body {
 }
 
 .glass {
-  background: rgba(20, 20, 22, 0.55);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
 .gradient-text {

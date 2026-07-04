@@ -8,11 +8,11 @@ interface Props {
 export function CuratedSection({ onSelect }: Props) {
   return (
     <div>
-      <div className="mb-1 flex items-center gap-2">
+      <div className="mb-2 flex items-center gap-3">
         <span className="rounded-full border border-pink/30 bg-pink/5 px-3 py-1 text-xs uppercase tracking-wide text-pink">
           2
         </span>
-        <h2 className="text-sm font-semibold text-white">컨셉 큐레이션 — 광고인의 하루</h2>
+        <h2 className="text-2xl font-extrabold text-white">컨셉 큐레이션 — 광고인의 하루</h2>
       </div>
       <p className="mb-6 text-sm text-muted">직접 안 써도 돼요. 지금 상황에 맞는 카드 하나만 눌러보세요.</p>
 

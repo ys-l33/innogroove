@@ -9,7 +9,7 @@ interface Props {
 export function CuratedCard({ theme, onSelect }: Props) {
   if (theme.variant === 'file-hell') {
     return (
-      <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
+      <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-white/10 p-5">
         <CardHeader theme={theme} />
         <div className="flex flex-1 flex-col gap-1.5">
           {theme.fileStates?.map((fs, i) => (
@@ -56,7 +56,7 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   if (theme.variant === 'trend') {
     return (
-      <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
+      <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-white/10 p-5">
         <CardHeader theme={theme} />
         <button
           type="button"
@@ -71,7 +71,7 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   // celebrate
   return (
-    <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-line p-5">
+    <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-white/10 p-5">
       <CardHeader theme={theme} />
       <ConfettiButton
         label={theme.ctaLabel!}
