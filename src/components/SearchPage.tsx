@@ -2,6 +2,7 @@ import type { CuratedSelection } from '../data/curatedThemes'
 import { PromptSearch } from './PromptSearch'
 import { CuratedSection } from './CuratedSection'
 import { MarqueeBanner } from './MarqueeBanner'
+import { FlowText } from './FlowText'
 
 interface Props {
   onCustomSubmit: (prompt: string) => void
@@ -21,9 +22,9 @@ export function SearchPage({ onCustomSubmit, onCuratedSelect }: Props) {
             <span className="font-light text-white/60">: The Playlist for Movers</span>
           </p>
           <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-            Find your <span className="gradient-text">groove</span>,
+            Find your <FlowText>groove</FlowText>,
             <br />
-            Make a <span className="gradient-text">move</span>.
+            Make a <FlowText>move</FlowText>.
           </h1>
           <p className="mt-3 text-sm text-muted">Type your vibe or pick a curation card below.</p>
         </div>
