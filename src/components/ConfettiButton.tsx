@@ -36,9 +36,10 @@ interface Props {
   label: string
   onDone: () => void
   className?: string
+  wrapperClassName?: string
 }
 
-export function ConfettiButton({ label, onDone, className }: Props) {
+export function ConfettiButton({ label, onDone, className, wrapperClassName }: Props) {
   const [particles, setParticles] = useState<Particle[]>([])
   const [popping, setPopping] = useState(false)
 
@@ -54,7 +55,7 @@ export function ConfettiButton({ label, onDone, className }: Props) {
   }
 
   return (
-    <span className="relative inline-block w-full">
+    <span className={`relative inline-block w-full ${wrapperClassName ?? ''}`}>
       <button type="button" onClick={handleClick} className={className}>
         {label}
       </button>

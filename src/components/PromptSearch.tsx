@@ -30,7 +30,7 @@ export function PromptSearch({ onSubmit }: Props) {
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit} className="w-full">
-        <div className="group relative flex items-center rounded-full border border-line bg-surface px-3 py-2 shadow-[0_0_0_1px_rgba(168,241,27,0)] transition focus-within:border-lime focus-within:shadow-[0_0_0_3px_rgba(168,241,27,0.15)]">
+        <div className="group relative flex items-center rounded-full border border-line bg-black/30 px-3 py-2 shadow-[0_0_0_1px_rgba(168,241,27,0)] transition focus-within:border-lime focus-within:shadow-[0_0_0_3px_rgba(168,241,27,0.15)]">
           <svg
             className="ml-3 h-5 w-5 shrink-0 text-muted"
             fill="none"

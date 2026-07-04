@@ -9,35 +9,27 @@ interface Props {
 export function CuratedCard({ theme, onSelect }: Props) {
   if (theme.variant === 'file-hell') {
     return (
-      <div className="rounded-3xl border border-line bg-surface p-5 sm:col-span-2">
+      <div className="glass flex h-full flex-col rounded-3xl border border-line p-5">
         <CardHeader theme={theme} />
-        <div className="mt-4 flex flex-col gap-2">
+        <div className="mt-4 flex flex-1 flex-col gap-1.5">
           {theme.fileStates?.map((fs, i) => (
             <button
               key={fs.id}
               type="button"
               onClick={() => onSelect({ displayTitle: fs.displayTitle, matchPrompt: fs.matchPrompt })}
-              className="group flex items-center justify-between gap-3 rounded-xl border border-line bg-surface-raised px-4 py-3 text-left transition hover:border-lime/50"
+              className="group flex items-center justify-between gap-2 rounded-xl border border-line bg-black/20 px-3 py-2 text-left transition hover:border-lime/50"
             >
-              <div className="flex min-w-0 items-center gap-3">
-                <span className="text-lg">📄</span>
-                <div className="min-w-0">
-                  <p className="truncate font-mono text-sm text-white">{fs.filename}</p>
-                  <p className="text-xs text-muted">{fs.vibe}</p>
-                </div>
+              <div className="flex min-w-0 items-center gap-2">
+                <span className="shrink-0 text-sm">📄</span>
+                <p className="truncate font-mono text-xs text-white">{fs.filename}</p>
               </div>
-              <div className="flex shrink-0 items-center gap-2">
-                <span className="hidden text-xs text-lime opacity-0 transition group-hover:opacity-100 sm:inline">
-                  재생하기
-                </span>
-                <div className="flex gap-0.5" aria-hidden>
-                  {theme.fileStates!.map((_, dotIndex) => (
-                    <span
-                      key={dotIndex}
-                      className={`h-1.5 w-3 rounded-full ${dotIndex <= i ? 'bg-lime' : 'bg-line'}`}
-                    />
-                  ))}
-                </div>
+              <div className="flex shrink-0 gap-0.5" aria-hidden>
+                {theme.fileStates!.map((_, dotIndex) => (
+                  <span
+                    key={dotIndex}
+                    className={`h-1.5 w-2.5 rounded-full ${dotIndex <= i ? 'bg-lime' : 'bg-line'}`}
+                  />
+                ))}
               </div>
             </button>
           ))}
@@ -48,13 +40,13 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   if (theme.variant === 'boost') {
     return (
-      <div className="boost-card relative overflow-hidden rounded-3xl border border-pink/40 bg-gradient-to-br from-pink/15 via-surface to-surface p-6">
-        <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-pink/20 blur-3xl" />
+      <div className="boost-card glass relative flex h-full flex-col overflow-hidden rounded-3xl border border-pink/40 p-5">
+        <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-pink/25 blur-3xl" />
         <CardHeader theme={theme} />
         <button
           type="button"
           onClick={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
-          className="relative mt-5 w-full rounded-full bg-pink px-5 py-3.5 text-sm font-bold tracking-wide text-black transition hover:bg-pink-soft active:scale-[0.98]"
+          className="relative mt-auto w-full rounded-full bg-pink px-5 py-3 text-sm font-bold tracking-wide text-black transition hover:bg-pink-soft active:scale-[0.98]"
         >
           {theme.ctaLabel}
         </button>
@@ -64,12 +56,12 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   if (theme.variant === 'trend') {
     return (
-      <div className="rounded-3xl border border-line bg-surface p-6">
+      <div className="glass flex h-full flex-col rounded-3xl border border-line p-5">
         <CardHeader theme={theme} />
         <button
           type="button"
           onClick={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
-          className="mt-5 w-full rounded-full border border-lime/50 bg-lime/10 px-5 py-3 text-sm font-semibold text-lime transition hover:bg-lime/20"
+          className="mt-auto w-full rounded-full border border-lime/50 bg-lime/10 px-5 py-3 text-sm font-semibold text-lime transition hover:bg-lime/20"
         >
           {theme.ctaLabel}
         </button>
@@ -79,12 +71,13 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   // celebrate
   return (
-    <div className="rounded-3xl border border-line bg-surface p-6">
+    <div className="glass flex h-full flex-col rounded-3xl border border-line p-5">
       <CardHeader theme={theme} />
       <ConfettiButton
         label={theme.ctaLabel!}
         onDone={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
-        className="mt-5 w-full rounded-full bg-lime px-5 py-3.5 text-sm font-bold text-black transition hover:bg-lime-soft active:scale-[0.98]"
+        wrapperClassName="mt-auto"
+        className="w-full rounded-full bg-lime px-5 py-3 text-sm font-bold text-black transition hover:bg-lime-soft active:scale-[0.98]"
       />
     </div>
   )
@@ -94,15 +87,15 @@ function CardHeader({ theme }: { theme: CuratedTheme }) {
   return (
     <div className="relative">
       <div className="flex items-center gap-2">
-        <span className="text-2xl">{theme.emoji}</span>
-        <h3 className="text-base font-semibold text-white">{theme.title}</h3>
+        <span className="text-xl">{theme.emoji}</span>
+        <h3 className="text-sm font-semibold text-white">{theme.title}</h3>
       </div>
       <p
         className={`mt-1 text-xs font-medium ${theme.accent === 'pink' ? 'text-pink' : 'text-lime'}`}
       >
         {theme.tagline}
       </p>
-      <p className="mt-2 text-sm text-muted">{theme.description}</p>
+      <p className="mt-2 text-xs text-muted">{theme.description}</p>
     </div>
   )
 }

@@ -16,7 +16,7 @@ export function CuratedSection({ onSelect }: Props) {
       </div>
       <p className="mb-6 text-sm text-muted">직접 안 써도 돼요. 지금 상황에 맞는 카드 하나만 눌러보세요.</p>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 @md:grid-cols-2">
         {CURATED_THEMES.map((theme) => (
           <CuratedCard key={theme.id} theme={theme} onSelect={onSelect} />
         ))}
