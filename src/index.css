@@ -172,6 +172,13 @@ body {
   -webkit-backdrop-filter: blur(20px);
 }
 
+.gradient-text {
+  background: linear-gradient(90deg, var(--color-lime) 0%, var(--color-pink) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .neon-lime {
   box-shadow:
     0 0 14px 0 rgba(168, 241, 27, 0.35),

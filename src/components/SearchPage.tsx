@@ -16,17 +16,16 @@ export function SearchPage({ onCustomSubmit, onCuratedSelect }: Props) {
 
       <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-14 sm:pt-20">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-lime/30 bg-lime/5 px-4 py-1 text-xs tracking-wide text-lime uppercase">
-            Focus Flow
+          <p className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-lime/30 bg-lime/5 px-4 py-1 text-xs tracking-wide">
+            <span className="font-bold text-lime">INNOGROOVE</span>
+            <span className="font-light text-white/60">: The Playlist for Movers</span>
           </p>
-          <h1 className="text-3xl font-semibold text-white sm:text-4xl">
-            오늘 작업에 어울리는 플레이리스트를
+          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+            Find your <span className="gradient-text">groove</span>,
             <br />
-            만들어드릴게요
+            Make a <span className="gradient-text">move</span>.
           </h1>
-          <p className="mt-3 text-sm text-muted">
-            직접 프롬프트를 적어도 되고, 오른쪽 큐레이션 카드를 눌러도 돼요.
-          </p>
+          <p className="mt-3 text-sm text-muted">Type your vibe or pick a curation card below.</p>
         </div>
 
         <div className="my-10">
