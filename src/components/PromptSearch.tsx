@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const EXAMPLES = [
   '펑키함을 살린 밴드 노래 플레이리스트',
@@ -15,7 +15,6 @@ interface Props {
 export function PromptSearch({ onSubmit }: Props) {
   const [value, setValue] = useState('')
   const [exampleIndex, setExampleIndex] = useState(0)
-  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -31,20 +30,8 @@ export function PromptSearch({ onSubmit }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-6">
-      <div className="mb-10 text-center">
-        <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-lime/30 bg-lime/5 px-4 py-1 text-xs tracking-wide text-lime uppercase">
-          Focus Flow
-        </p>
-        <h1 className="text-3xl font-semibold text-white sm:text-4xl">
-          오늘 작업에 어울리는<br className="sm:hidden" /> 플레이리스트를 만들어드릴게요
-        </h1>
-        <p className="mt-3 text-sm text-muted">
-          원하는 분위기를 문장으로 설명해주세요. 장르, 무드, 언어, 날씨 뭐든 좋아요.
-        </p>
-      </div>
-
-      <form onSubmit={handleSubmit} className="w-full max-w-2xl">
+    <div className="w-full">
+      <form onSubmit={handleSubmit} className="w-full">
         <div className="group relative flex items-center rounded-full border border-line bg-surface px-3 py-2 shadow-[0_0_0_1px_rgba(168,241,27,0)] transition focus-within:border-lime focus-within:shadow-[0_0_0_3px_rgba(168,241,27,0.15)]">
           <svg
             className="ml-3 h-5 w-5 shrink-0 text-muted"
@@ -56,7 +43,6 @@ export function PromptSearch({ onSubmit }: Props) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
           </svg>
           <input
-            ref={inputRef}
             value={value}
             onChange={(e) => setValue(e.target.value)}
             placeholder={EXAMPLES[exampleIndex]}
@@ -71,7 +57,7 @@ export function PromptSearch({ onSubmit }: Props) {
         </div>
       </form>
 
-      <div className="mt-6 flex flex-wrap justify-center gap-2">
+      <div className="mt-4 flex flex-wrap gap-2">
         {EXAMPLES.slice(0, 3).map((ex) => (
           <button
             key={ex}

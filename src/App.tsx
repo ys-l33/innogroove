@@ -2,14 +2,16 @@ import { useState } from 'react'
 import type { Track } from './data/tracks'
 import { generatePlaylist, regeneratePlaylist, type PreferenceProfile } from './lib/matcher'
 import type { Platform, VersionPreference } from './lib/platformLinks'
-import { PromptSearch } from './components/PromptSearch'
+import type { CuratedSelection } from './data/curatedThemes'
+import { SearchPage } from './components/SearchPage'
 import { PlaylistScreen } from './components/PlaylistScreen'
 import { OptionsScreen } from './components/OptionsScreen'
 import { RedirectScreen } from './components/RedirectScreen'
 
 interface PlaylistStage {
   name: 'playlist'
-  prompt: string
+  origin: 'custom' | 'curated'
+  title: string
   profile: PreferenceProfile
   tracks: Track[]
   round: number
@@ -34,9 +36,14 @@ type Stage = { name: 'search' } | PlaylistStage | OptionsStage | RedirectStage
 function App() {
   const [stage, setStage] = useState<Stage>({ name: 'search' })
 
-  function handleSearch(prompt: string) {
+  function handleCustomSearch(prompt: string) {
     const { profile, tracks } = generatePlaylist(prompt)
-    setStage({ name: 'playlist', prompt, profile, tracks, round: 1 })
+    setStage({ name: 'playlist', origin: 'custom', title: prompt, profile, tracks, round: 1 })
+  }
+
+  function handleCuratedSelect(selection: CuratedSelection) {
+    const { profile, tracks } = generatePlaylist(selection.matchPrompt)
+    setStage({ name: 'playlist', origin: 'curated', title: selection.displayTitle, profile, tracks, round: 1 })
   }
 
   function handleRegenerate(current: PlaylistStage, likedIds: string[], removedIds: string[]) {
@@ -57,13 +64,14 @@ function App() {
   }
 
   if (stage.name === 'search') {
-    return <PromptSearch onSubmit={handleSearch} />
+    return <SearchPage onCustomSubmit={handleCustomSearch} onCuratedSelect={handleCuratedSelect} />
   }
 
   if (stage.name === 'playlist') {
     return (
       <PlaylistScreen
-        prompt={stage.prompt}
+        title={stage.title}
+        origin={stage.origin}
         tracks={stage.tracks}
         round={stage.round}
         onRegenerate={(liked, removed) => handleRegenerate(stage, liked, removed)}

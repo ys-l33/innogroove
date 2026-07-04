@@ -3,7 +3,8 @@ import type { Track } from '../data/tracks'
 import { TrackRow } from './TrackRow'
 
 interface Props {
-  prompt: string
+  title: string
+  origin: 'custom' | 'curated'
   tracks: Track[]
   round: number
   onRegenerate: (likedIds: string[], removedIds: string[]) => void
@@ -11,7 +12,7 @@ interface Props {
   onRestart: () => void
 }
 
-export function PlaylistScreen({ prompt, tracks, round, onRegenerate, onConfirm, onRestart }: Props) {
+export function PlaylistScreen({ title, origin, tracks, round, onRegenerate, onConfirm, onRestart }: Props) {
   const [likedIds, setLikedIds] = useState<Set<string>>(new Set())
   const [removedIds, setRemovedIds] = useState<Set<string>>(new Set())
 
@@ -60,9 +61,12 @@ export function PlaylistScreen({ prompt, tracks, round, onRegenerate, onConfirm,
             ← 새 프롬프트로 다시 시작
           </button>
           <p className="text-xs uppercase tracking-wide text-lime">
-            {round === 1 ? '추천 결과' : `재추천 결과 · ${round - 1}회 반영`}
+            {origin === 'curated' ? '컨셉 큐레이션' : '추천 결과'}
+            {round > 1 ? ` · 재추천 ${round - 1}회 반영` : ''}
           </p>
-          <h1 className="mt-1 text-xl font-semibold text-white sm:text-2xl">"{prompt}"</h1>
+          <h1 className="mt-1 text-xl font-semibold text-white sm:text-2xl">
+            {origin === 'custom' ? `"${title}"` : title}
+          </h1>
           <p className="mt-1 text-sm text-muted">
             마음에 드는 곡은 하트, 빼고 싶은 곡은 X를 눌러주세요. 총 {remainingCount}곡
           </p>

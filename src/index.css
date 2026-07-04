@@ -54,3 +54,37 @@ body {
   background: var(--color-line);
   border-radius: 999px;
 }
+
+@keyframes confetti-pop {
+  0% {
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(var(--tx), var(--ty)) rotate(var(--rot));
+    opacity: 0;
+  }
+}
+
+.confetti-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: confetti-pop var(--dur, 1s) ease-out forwards;
+  animation-delay: var(--delay, 0s);
+  will-change: transform, opacity;
+}
+
+@keyframes card-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(241, 55, 179, 0.25), 0 0 30px -8px rgba(241, 55, 179, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(241, 55, 179, 0.45), 0 0 46px -6px rgba(241, 55, 179, 0.55);
+  }
+}
+
+.boost-card {
+  animation: card-glow-pulse 2.6s ease-in-out infinite;
+}
