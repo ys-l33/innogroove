@@ -61,7 +61,10 @@ export function PromptSearch({ onSubmit }: Props) {
           <button
             key={ex.prompt}
             type="button"
-            onClick={() => setValue(ex.prompt)}
+            onClick={() => {
+              setValue(ex.prompt)
+              onSubmit(ex.prompt)
+            }}
             className="rounded-full border border-line px-3.5 py-1.5 text-xs text-muted transition-colors hover:border-pink/50 hover:bg-pink/10 hover:text-pink"
           >
             {ex.label}

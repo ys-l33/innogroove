@@ -1,5 +1,5 @@
 import type { CuratedSelection, CuratedTheme } from '../data/curatedThemes'
-import { ConfettiButton } from './ConfettiButton'
+import { EffectButton } from './EffectButton'
 
 interface Props {
   theme: CuratedTheme
@@ -13,11 +13,13 @@ export function CuratedCard({ theme, onSelect }: Props) {
         <CardHeader theme={theme} />
         <div className="flex flex-1 flex-col gap-1.5">
           {theme.fileStates?.map((fs, i) => (
-            <button
+            <EffectButton
               key={fs.id}
-              type="button"
-              onClick={() => onSelect({ displayTitle: fs.displayTitle, matchPrompt: fs.matchPrompt })}
-              className="group flex items-center justify-between gap-2 rounded-xl border border-line bg-black/20 px-3 py-2 text-left transition hover:border-lime/50"
+              onDone={() => onSelect({ displayTitle: fs.displayTitle, matchPrompt: fs.matchPrompt })}
+              emojis={['📄', '😵‍💫', '💦']}
+              particleCount={16}
+              spread={0.6}
+              className="group flex w-full items-center justify-between gap-2 rounded-xl border border-line bg-black/20 px-3 py-2 text-left transition hover:border-lime/50"
             >
               <div className="flex min-w-0 items-center gap-2">
                 <span className="shrink-0 text-sm">📄</span>
@@ -31,7 +33,7 @@ export function CuratedCard({ theme, onSelect }: Props) {
                   />
                 ))}
               </div>
-            </button>
+            </EffectButton>
           ))}
         </div>
       </div>
@@ -40,16 +42,17 @@ export function CuratedCard({ theme, onSelect }: Props) {
 
   if (theme.variant === 'boost') {
     return (
-      <div className="boost-card curated-card glass relative flex h-full flex-col gap-4 overflow-hidden rounded-3xl border border-pink/40 p-5">
+      <div className="curated-card hover-glow-pink glass relative flex h-full flex-col gap-4 overflow-hidden rounded-3xl border border-white/10 p-5">
         <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-pink/25 blur-3xl" />
         <CardHeader theme={theme} />
-        <button
-          type="button"
-          onClick={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
-          className="neon-pink relative mt-auto w-full rounded-full bg-pink px-5 py-3 text-sm font-bold tracking-wide text-black transition hover:bg-pink-soft active:scale-[0.98]"
+        <EffectButton
+          onDone={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
+          emojis={['⚡', '🔥', '🚀']}
+          wrapperClassName="relative mt-auto"
+          className="neon-pink w-full rounded-full bg-pink px-5 py-3 text-sm font-bold tracking-wide text-black transition hover:bg-pink-soft active:scale-[0.98]"
         >
           {theme.ctaLabel}
-        </button>
+        </EffectButton>
       </div>
     )
   }
@@ -58,13 +61,14 @@ export function CuratedCard({ theme, onSelect }: Props) {
     return (
       <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-white/10 p-5">
         <CardHeader theme={theme} />
-        <button
-          type="button"
-          onClick={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
-          className="neon-lime mt-auto w-full rounded-full border border-lime/50 bg-lime/10 px-5 py-3 text-sm font-semibold text-lime transition hover:bg-lime/20"
+        <EffectButton
+          onDone={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
+          emojis={['✨', '🔥', '📈']}
+          wrapperClassName="mt-auto"
+          className="neon-lime w-full rounded-full border border-lime/50 bg-lime/10 px-5 py-3 text-sm font-semibold text-lime transition hover:bg-lime/20"
         >
           {theme.ctaLabel}
-        </button>
+        </EffectButton>
       </div>
     )
   }
@@ -73,12 +77,13 @@ export function CuratedCard({ theme, onSelect }: Props) {
   return (
     <div className="curated-card hover-glow-lime glass flex h-full flex-col gap-4 rounded-3xl border border-white/10 p-5">
       <CardHeader theme={theme} />
-      <ConfettiButton
-        label={theme.ctaLabel!}
+      <EffectButton
         onDone={() => onSelect({ displayTitle: theme.displayTitle!, matchPrompt: theme.matchPrompt! })}
         wrapperClassName="mt-auto"
         className="neon-lime w-full rounded-full bg-lime px-5 py-3 text-sm font-bold text-black transition hover:bg-lime-soft active:scale-[0.98]"
-      />
+      >
+        {theme.ctaLabel}
+      </EffectButton>
     </div>
   )
 }
