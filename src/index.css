@@ -139,9 +139,36 @@ body {
 }
 
 .glass {
-  background: rgba(20, 20, 20, 0.6);
+  background-color: rgba(20, 20, 20, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+}
+
+/*
+ * Concept tints: painted as background-image layers (not a separate blurred
+ * child element) so they always respect the card's own border-radius,
+ * regardless of browser quirks around backdrop-filter + overflow clipping.
+ */
+.tint-yellow-orange {
+  background-image:
+    radial-gradient(120% 90% at 100% 0%, rgba(251, 191, 36, 0.22), transparent 60%),
+    radial-gradient(100% 90% at 0% 100%, rgba(249, 115, 22, 0.14), transparent 60%);
+}
+
+.tint-pink {
+  background-image: radial-gradient(120% 90% at 100% 0%, rgba(241, 55, 179, 0.24), transparent 60%);
+}
+
+.tint-blue-teal {
+  background-image:
+    radial-gradient(120% 90% at 100% 0%, rgba(56, 189, 248, 0.2), transparent 60%),
+    radial-gradient(100% 90% at 0% 100%, rgba(45, 212, 191, 0.16), transparent 60%);
+}
+
+.tint-mint-lime {
+  background-image:
+    radial-gradient(120% 90% at 100% 0%, rgba(134, 239, 172, 0.18), transparent 60%),
+    radial-gradient(100% 90% at 0% 100%, rgba(168, 241, 27, 0.14), transparent 60%);
 }
 
 .gradient-text {
