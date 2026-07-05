@@ -18,12 +18,12 @@ interface Props {
 export function TrackRow({ track, index, liked, removed, onToggleLike, onToggleRemove }: Props) {
   return (
     <div
-      className={`flex items-center gap-4 rounded-2xl border px-4 py-3 transition-all duration-300 ${
+      className={`relative flex items-center gap-4 rounded-2xl border px-4 py-3 transition-all duration-300 ${
         removed
-          ? 'border-line/50 bg-surface/40 opacity-35'
+          ? 'z-0 border-line/50 bg-surface/40 opacity-35'
           : liked
-            ? 'track-glow-pink border-pink/50 bg-pink/5'
-            : 'border-line bg-surface'
+            ? 'track-glow-pink z-10 border-pink/50 bg-pink/5'
+            : 'z-0 border-line bg-surface'
       }`}
     >
       <span className="w-6 shrink-0 text-center text-sm text-muted-soft tabular-nums">{index + 1}</span>

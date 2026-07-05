@@ -89,7 +89,7 @@ export function PlaylistScreen({ title, origin, tracks, round, onRegenerate, onC
         </div>
       </div>
 
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-3.5">
         {tracks.map((track, i) => (
           <TrackRow
             key={track.id}
