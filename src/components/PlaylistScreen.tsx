@@ -73,11 +73,19 @@ export function PlaylistScreen({ title, origin, tracks, round, onRegenerate, onC
           </p>
         </div>
 
-        <div className="mt-4 flex items-center justify-between gap-3">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
           <p className="text-sm text-muted">마음에 드는 곡은 하트, 빼고 싶은 곡은 X를 눌러주세요.</p>
-          <span className="shrink-0 rounded-full border border-lime/40 px-3 py-1 text-xs font-semibold text-lime">
-            총 {remainingCount}곡
-          </span>
+          <div className="flex shrink-0 items-center gap-1.5">
+            <span className="flex items-center gap-1 rounded-full border border-pink/40 bg-pink/5 px-2.5 py-1 text-xs font-bold text-pink tabular-nums">
+              ❤️ {likedIds.size}
+            </span>
+            <span className="flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-xs font-bold text-muted tabular-nums">
+              ❌ {removedIds.size}
+            </span>
+            <span className="rounded-full border border-lime/40 px-2.5 py-1 text-xs font-bold text-lime tabular-nums">
+              남은 곡 {remainingCount}
+            </span>
+          </div>
         </div>
       </div>
 

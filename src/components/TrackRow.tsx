@@ -18,21 +18,21 @@ interface Props {
 export function TrackRow({ track, index, liked, removed, onToggleLike, onToggleRemove }: Props) {
   return (
     <div
-      className={`flex items-center gap-4 rounded-2xl border px-4 py-3 transition ${
+      className={`flex items-center gap-4 rounded-2xl border px-4 py-3 transition-all duration-300 ${
         removed
-          ? 'border-line/50 bg-surface/40 opacity-40'
+          ? 'border-line/50 bg-surface/40 opacity-35'
           : liked
-            ? 'border-pink/40 bg-pink/5'
+            ? 'track-glow-pink border-pink/50 bg-pink/5'
             : 'border-line bg-surface'
       }`}
     >
       <span className="w-6 shrink-0 text-center text-sm text-muted-soft tabular-nums">{index + 1}</span>
 
       <div className="min-w-0 flex-1">
-        <p className={`truncate text-sm font-medium ${removed ? 'text-muted line-through' : 'text-white'}`}>
+        <p className={`truncate text-sm font-bold ${removed ? 'text-muted line-through' : 'text-white'}`}>
           {track.title}
         </p>
-        <p className="truncate text-xs text-muted">{track.artist}</p>
+        <p className="truncate text-xs font-light text-muted-soft">{track.artist}</p>
         <div className="mt-1.5 flex flex-wrap gap-1.5">
           {track.genre.slice(0, 2).map((g) => (
             <span key={g} className="rounded-full bg-lime/10 px-2 py-0.5 text-[10px] font-medium text-lime">
