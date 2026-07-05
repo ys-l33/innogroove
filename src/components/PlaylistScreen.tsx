@@ -60,7 +60,7 @@ export function PlaylistScreen({ title, origin, tracks, round, onRegenerate, onC
           ← 새 프롬프트로 다시 시작
         </button>
 
-        <div className="glass rounded-2xl border border-white/10 border-l-4 border-l-lime px-5 py-4">
+        <div className="tinted-glass rounded-2xl border border-white/15 border-l-4 border-l-lime px-5 py-4">
           <span className="inline-block rounded-full bg-lime/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-lime">
             Generated Vibe
           </span>

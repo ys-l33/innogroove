@@ -144,6 +144,12 @@ body {
   -webkit-backdrop-filter: blur(16px);
 }
 
+.tinted-glass {
+  background-image: linear-gradient(135deg, rgba(168, 241, 27, 0.13), rgba(241, 55, 179, 0.13));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
 /*
  * Concept tints: painted as background-image layers (not a separate blurred
  * child element) so they always respect the card's own border-radius,
