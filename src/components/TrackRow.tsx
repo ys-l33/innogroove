@@ -18,12 +18,8 @@ interface Props {
 export function TrackRow({ track, index, liked, removed, onToggleLike, onToggleRemove }: Props) {
   return (
     <div
-      className={`relative flex items-center gap-4 rounded-2xl border px-4 py-3 transition-all duration-300 ${
-        removed
-          ? 'z-0 border-line/50 bg-surface/40 opacity-35'
-          : liked
-            ? 'track-glow-pink z-10 border-pink/50 bg-pink/5'
-            : 'z-0 border-line bg-surface'
+      className={`relative flex items-center gap-4 rounded-2xl border px-4 py-3 ${
+        liked ? 'track-glow-pink z-10 border-pink/50 bg-pink/5' : 'z-0 border-line bg-surface'
       }`}
     >
       <span className="w-6 shrink-0 text-center text-sm text-muted-soft tabular-nums">{index + 1}</span>
@@ -71,7 +67,7 @@ export function TrackRow({ track, index, liked, removed, onToggleLike, onToggleR
           onClick={() => onToggleRemove(track.id)}
           className={`flex h-9 w-9 items-center justify-center rounded-full border transition ${
             removed
-              ? 'border-white/40 bg-white/10 text-white'
+              ? 'border-muted-soft bg-muted-soft text-white'
               : 'border-line text-muted hover:border-white/40 hover:text-white'
           }`}
         >
@@ -80,6 +76,15 @@ export function TrackRow({ track, index, liked, removed, onToggleLike, onToggleR
           </svg>
         </button>
       </div>
+
+      {removed && (
+        <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center rounded-2xl bg-black/15 backdrop-blur-md">
+          <span className="flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-bold tracking-wide text-black shadow-lg">
+            <span aria-hidden>🛇</span>
+            제외됨
+          </span>
+        </div>
+      )}
     </div>
   )
 }
