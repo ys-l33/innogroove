@@ -55,21 +55,29 @@ export function PlaylistScreen({ title, origin, tracks, round, onRegenerate, onC
 
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-6 pb-32 pt-10">
-      <div className="mb-6 flex items-start justify-between gap-4">
-        <div>
-          <button type="button" onClick={onRestart} className="mb-3 text-xs text-muted hover:text-lime">
-            ← 새 프롬프트로 다시 시작
-          </button>
-          <p className="text-xs uppercase tracking-wide text-lime">
+      <div className="mb-6">
+        <button type="button" onClick={onRestart} className="mb-3 text-xs text-muted hover:text-lime">
+          ← 새 프롬프트로 다시 시작
+        </button>
+
+        <div className="glass rounded-2xl border border-white/10 border-l-4 border-l-lime px-5 py-4">
+          <span className="inline-block rounded-full bg-lime/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-lime">
+            Generated Vibe
+          </span>
+          <h1 className="mt-2 text-xl font-semibold text-white sm:text-2xl">
+            {origin === 'custom' ? `"${title}"` : title}
+          </h1>
+          <p className="mt-1 text-xs uppercase tracking-wide text-lime">
             {origin === 'curated' ? '컨셉 큐레이션' : '추천 결과'}
             {round > 1 ? ` · 재추천 ${round - 1}회 반영` : ''}
           </p>
-          <h1 className="mt-1 text-xl font-semibold text-white sm:text-2xl">
-            {origin === 'custom' ? `"${title}"` : title}
-          </h1>
-          <p className="mt-1 text-sm text-muted">
-            마음에 드는 곡은 하트, 빼고 싶은 곡은 X를 눌러주세요. 총 {remainingCount}곡
-          </p>
+        </div>
+
+        <div className="mt-4 flex items-center justify-between gap-3">
+          <p className="text-sm text-muted">마음에 드는 곡은 하트, 빼고 싶은 곡은 X를 눌러주세요.</p>
+          <span className="shrink-0 rounded-full border border-lime/40 px-3 py-1 text-xs font-semibold text-lime">
+            총 {remainingCount}곡
+          </span>
         </div>
       </div>
 
@@ -89,14 +97,14 @@ export function PlaylistScreen({ title, origin, tracks, round, onRegenerate, onC
 
       <div className="fixed inset-x-0 bottom-0 border-t border-line bg-ink/95 backdrop-blur">
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-3 px-6 py-4 sm:flex-row sm:justify-between">
-          <p className="text-sm text-white">이 플레이리스트로 노래를 재생할까요?</p>
+          <p className="text-sm text-white">이대로 플레이리스트를 완성할까요?</p>
           <div className="flex w-full gap-2 sm:w-auto">
             <button
               type="button"
               onClick={() => onRegenerate([...likedIds], [...removedIds])}
               className="flex-1 rounded-full border border-line px-5 py-2.5 text-sm font-medium text-muted transition hover:border-pink/50 hover:text-pink sm:flex-none"
             >
-              아니요, 다시 추천
+              아니요, 취향 반영해 재생성
             </button>
             <button
               type="button"
