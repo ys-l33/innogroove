@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/fonts/PretendardMedium.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: 'Pretendard', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Outfit', 'Pretendard', system-ui, 'Segoe UI', Roboto, sans-serif;
 
   --color-ink: #000000;
   --color-ink-soft: #0a0a0a;
@@ -38,6 +47,13 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
 ::selection {
