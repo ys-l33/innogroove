@@ -11,7 +11,7 @@ export function GlobalHeader({ isHome, onNavigateHome }: Props) {
       type="button"
       onClick={onNavigateHome}
       className={`mx-auto block w-full text-center transition-all duration-300 ease-out ${
-        isHome ? 'max-w-2xl px-6 pb-2 pt-14 sm:pt-20' : 'max-w-none px-6 pb-1 pt-8'
+        isHome ? 'max-w-2xl px-6 pb-2 pt-14 sm:pt-20' : 'max-w-none px-6 pt-8 -mb-3'
       }`}
     >
       <p
