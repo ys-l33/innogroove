@@ -3,6 +3,7 @@ import { PromptSearch } from './PromptSearch'
 import { CuratedSection } from './CuratedSection'
 import { MarqueeBanner } from './MarqueeBanner'
 import { FlowText } from './FlowText'
+import { AdLyricsRoulette } from './AdLyricsRoulette'
 
 interface Props {
   onCustomSubmit: (prompt: string) => void
@@ -41,6 +42,10 @@ export function SearchPage({ onCustomSubmit, onCuratedSelect }: Props) {
           <div className="glass rounded-3xl border border-white/10 p-6">
             <PromptSearch onSubmit={onCustomSubmit} />
           </div>
+
+          <div className="my-8 border-t border-white/10" />
+
+          <AdLyricsRoulette />
         </section>
 
         <div aria-hidden className="hidden self-stretch bg-white/10 md:block" />
