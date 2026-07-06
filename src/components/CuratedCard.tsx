@@ -23,7 +23,7 @@ export function CuratedCard({ theme, onSelect }: Props) {
             >
               <div className="flex min-w-0 items-center gap-2">
                 <span className="shrink-0 text-sm">📄</span>
-                <p className="truncate font-mono text-xs text-white">{fs.filename}</p>
+                <p className="truncate text-xs text-white">{fs.filename}</p>
               </div>
               <div className="flex shrink-0 gap-0.5" aria-hidden>
                 {theme.fileStates!.map((_, dotIndex) => (
