@@ -9,6 +9,7 @@ import { OptionsScreen } from './components/OptionsScreen'
 import { RedirectScreen } from './components/RedirectScreen'
 import { ScrollToTop } from './components/ScrollToTop'
 import { GlobalHeader } from './components/GlobalHeader'
+import { GoHomeFab } from './components/GoHomeFab'
 
 interface PlaylistStage {
   name: 'playlist'
@@ -108,6 +109,7 @@ function App() {
       <div className="noise-overlay" />
       <GlobalHeader isHome={stage.name === 'search'} onNavigateHome={handleRestart} />
       {content}
+      <GoHomeFab visible={stage.name !== 'search'} onNavigateHome={handleRestart} />
     </div>
   )
 }
