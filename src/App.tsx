@@ -10,6 +10,7 @@ import { RedirectScreen } from './components/RedirectScreen'
 import { ScrollToTop } from './components/ScrollToTop'
 import { GlobalHeader } from './components/GlobalHeader'
 import { GoHomeFab } from './components/GoHomeFab'
+import { DigitalClock } from './components/DigitalClock'
 
 interface PlaylistStage {
   name: 'playlist'
@@ -110,6 +111,7 @@ function App() {
       <GlobalHeader isHome={stage.name === 'search'} onNavigateHome={handleRestart} />
       {content}
       <GoHomeFab visible={stage.name !== 'search'} onNavigateHome={handleRestart} />
+      <DigitalClock />
     </div>
   )
 }
