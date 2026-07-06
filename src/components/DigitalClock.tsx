@@ -12,7 +12,11 @@ function formatTime(date: Date) {
   }
 }
 
-export function DigitalClock() {
+interface Props {
+  isHome: boolean
+}
+
+export function DigitalClock({ isHome }: Props) {
   const [now, setNow] = useState(() => new Date())
 
   useEffect(() => {
@@ -23,7 +27,11 @@ export function DigitalClock() {
   const { hours, minutes, seconds, period } = formatTime(now)
 
   return (
-    <div className="fixed bottom-24 left-8 z-50 flex flex-col items-start gap-1 rounded-2xl bg-black/20 px-3 py-2 backdrop-blur-sm">
+    <div
+      className={`fixed left-8 z-50 flex flex-col items-start gap-1 rounded-2xl bg-black/20 px-3 py-2 backdrop-blur-sm transition-all duration-300 ease-out ${
+        isHome ? 'bottom-8' : 'bottom-24'
+      }`}
+    >
       <span className="text-[10px] font-light tracking-wide text-muted">time is ticking..</span>
       <span className="digital-clock flex items-baseline text-sm text-white/80">
         <span>{hours}</span>

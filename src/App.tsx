@@ -111,7 +111,7 @@ function App() {
       <GlobalHeader isHome={stage.name === 'search'} onNavigateHome={handleRestart} />
       {content}
       <GoHomeFab visible={stage.name !== 'search'} onNavigateHome={handleRestart} />
-      <DigitalClock />
+      <DigitalClock isHome={stage.name === 'search'} />
     </div>
   )
 }
