@@ -23,21 +23,13 @@ export function GlobalHeader({ isHome, onNavigateHome }: Props) {
         <span className="font-light text-white/60">: The Playlist for Movers</span>
       </p>
       <h1
-        className={`font-extrabold tracking-tight text-white transition-all duration-300 ease-out ${
-          isHome ? 'text-4xl sm:text-5xl' : 'text-base sm:text-lg'
+        className={`text-center font-extrabold tracking-tight text-white transition-all duration-300 ease-out ${
+          isHome ? 'text-4xl leading-normal sm:text-5xl' : 'text-base leading-tight sm:text-lg'
         }`}
       >
-        {isHome ? (
-          <>
-            Find your <FlowText>groove</FlowText>,
-            <br />
-            Make a <FlowText>move</FlowText>.
-          </>
-        ) : (
-          <>
-            Find your <FlowText>groove</FlowText>, Make a <FlowText>move</FlowText>.
-          </>
-        )}
+        Find your <FlowText>groove</FlowText>,
+        <br />
+        Make a <FlowText>move</FlowText>.
       </h1>
     </button>
   )
