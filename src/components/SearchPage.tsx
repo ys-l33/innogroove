@@ -2,7 +2,6 @@ import type { CuratedSelection } from '../data/curatedThemes'
 import { PromptSearch } from './PromptSearch'
 import { CuratedSection } from './CuratedSection'
 import { MarqueeBanner } from './MarqueeBanner'
-import { FlowText } from './FlowText'
 import { AdLyricsRoulette } from './AdLyricsRoulette'
 
 interface Props {
@@ -12,18 +11,9 @@ interface Props {
 
 export function SearchPage({ onCustomSubmit, onCuratedSelect }: Props) {
   return (
-    <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-14 sm:pt-20">
+    <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-2">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-lime/30 bg-lime/5 px-[1.4rem] py-[0.35rem] text-[1.05rem] tracking-wide">
-          <span className="font-bold text-lime">INNOGROOVE</span>
-          <span className="font-light text-white/60">: The Playlist for Movers</span>
-        </p>
-        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-          Find your <FlowText>groove</FlowText>,
-          <br />
-          Make a <FlowText>move</FlowText>.
-        </h1>
-        <p className="mt-3 text-sm text-muted">Type your vibe or pick a curation card below.</p>
+        <p className="text-sm text-muted">Type your vibe or pick a curation card below.</p>
       </div>
 
       <div className="my-10">

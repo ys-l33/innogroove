@@ -8,6 +8,7 @@ import { PlaylistScreen } from './components/PlaylistScreen'
 import { OptionsScreen } from './components/OptionsScreen'
 import { RedirectScreen } from './components/RedirectScreen'
 import { ScrollToTop } from './components/ScrollToTop'
+import { GlobalHeader } from './components/GlobalHeader'
 
 interface PlaylistStage {
   name: 'playlist'
@@ -105,6 +106,7 @@ function App() {
       <ScrollToTop trigger={stage.name} />
       <div className="mesh-bg pointer-events-none fixed inset-0 -z-10" />
       <div className="noise-overlay" />
+      <GlobalHeader isHome={stage.name === 'search'} onNavigateHome={handleRestart} />
       {content}
     </div>
   )
