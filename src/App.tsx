@@ -7,6 +7,7 @@ import { SearchPage } from './components/SearchPage'
 import { PlaylistScreen } from './components/PlaylistScreen'
 import { OptionsScreen } from './components/OptionsScreen'
 import { RedirectScreen } from './components/RedirectScreen'
+import { ScrollToTop } from './components/ScrollToTop'
 
 interface PlaylistStage {
   name: 'playlist'
@@ -101,6 +102,7 @@ function App() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <ScrollToTop trigger={stage.name} />
       <div className="mesh-bg pointer-events-none fixed inset-0 -z-10" />
       <div className="noise-overlay" />
       {content}
