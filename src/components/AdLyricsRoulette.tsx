@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AD_LYRICS } from '../data/adLyrics'
 
-const KEYWORD_PATTERN = /(\bads\b|\badvertising\b|\badvertisement\b|광고)/gi
+const KEYWORD_PATTERN = /(\bads\b|\badvertising\b|\badvertisement\b|\bad\b|광고)/gi
 
 function highlightKeywords(text: string) {
   return text.split(KEYWORD_PATTERN).map((part, i) =>
