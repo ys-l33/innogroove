@@ -79,10 +79,20 @@ export function TrackRow({ track, index, liked, removed, onToggleLike, onToggleR
 
       {removed && (
         <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center rounded-2xl bg-black/15 backdrop-blur-md">
-          <span className="flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-bold tracking-wide text-black shadow-lg">
-            <span aria-hidden>🛇</span>
-            제외됨
-          </span>
+          <button
+            type="button"
+            onClick={() => onToggleRemove(track.id)}
+            className="group pointer-events-auto grid cursor-pointer place-items-center rounded-full border border-transparent bg-white/95 px-3 py-1 text-xs font-bold tracking-wide text-black shadow-lg transition-colors hover:border-black/20 hover:bg-white/75"
+          >
+            <span className="col-start-1 row-start-1 flex items-center gap-1.5 opacity-100 transition-opacity duration-200 group-hover:opacity-0">
+              <span aria-hidden>🛇</span>
+              제외됨
+            </span>
+            <span className="col-start-1 row-start-1 flex items-center gap-1.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+              <span aria-hidden>↩️</span>
+              취소하기
+            </span>
+          </button>
         </div>
       )}
     </div>
