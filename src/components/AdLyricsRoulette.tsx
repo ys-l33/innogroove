@@ -43,11 +43,11 @@ export function AdLyricsRoulette() {
         bouncing ? 'scale-[0.97]' : 'scale-100'
       }`}
     >
-      <p className="text-xs text-muted-soft">🎧 앗, 광고를 노래하고 있어요! (Click)</p>
+      <p className="text-xs font-medium text-white/70">🎙️ 광고도 노래 가사가 될 수 있다 (눌러보세요!)</p>
       <p key={index} className="ad-lyrics-fade-in mt-3 text-lg font-semibold leading-snug text-white">
         “{highlightKeywords(lyric.text)}”
       </p>
-      <p className="mt-4 text-right text-xs text-muted-soft">
+      <p className="mt-4 text-right text-xs font-medium text-white/70">
         {lyric.song} · {lyric.artist}
       </p>
     </button>
