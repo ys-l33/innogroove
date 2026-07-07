@@ -13,10 +13,10 @@ function formatTime(date: Date) {
 }
 
 interface Props {
-  isHome: boolean
+  hasBottomBar: boolean
 }
 
-export function DigitalClock({ isHome }: Props) {
+export function DigitalClock({ hasBottomBar }: Props) {
   const [now, setNow] = useState(() => new Date())
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export function DigitalClock({ isHome }: Props) {
   return (
     <div
       className={`fixed left-8 z-50 flex flex-col items-start gap-1 rounded-2xl bg-black/20 px-3 py-2 backdrop-blur-sm transition-all duration-300 ease-out ${
-        isHome ? 'bottom-8' : 'bottom-24'
+        hasBottomBar ? 'bottom-24' : 'bottom-8'
       }`}
     >
       <span className="text-[10px] font-light tracking-wide text-muted">time is ticking..</span>

@@ -103,6 +103,8 @@ function App() {
     )
   }
 
+  const hasBottomBar = stage.name === 'playlist'
+
   return (
     <div className="relative min-h-screen overflow-x-hidden">
       <ScrollToTop trigger={stage.name} />
@@ -110,8 +112,8 @@ function App() {
       <div className="noise-overlay" />
       <GlobalHeader isHome={stage.name === 'search'} onNavigateHome={handleRestart} />
       {content}
-      <GoHomeFab visible={stage.name !== 'search'} onNavigateHome={handleRestart} />
-      <DigitalClock isHome={stage.name === 'search'} />
+      <GoHomeFab visible={stage.name !== 'search'} hasBottomBar={hasBottomBar} onNavigateHome={handleRestart} />
+      <DigitalClock hasBottomBar={hasBottomBar} />
     </div>
   )
 }

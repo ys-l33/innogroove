@@ -1,16 +1,19 @@
 interface Props {
   visible: boolean
+  hasBottomBar: boolean
   onNavigateHome: () => void
 }
 
-export function GoHomeFab({ visible, onNavigateHome }: Props) {
+export function GoHomeFab({ visible, hasBottomBar, onNavigateHome }: Props) {
   if (!visible) return null
 
   return (
     <button
       type="button"
       onClick={onNavigateHome}
-      className="go-home-fab glass group fixed bottom-24 right-8 z-50 inline-flex items-center rounded-full border border-white/10 px-4 py-2.5 transition-transform duration-200 ease-out hover:-translate-y-0.5 active:scale-95"
+      className={`go-home-fab glass group fixed right-8 z-50 inline-flex items-center rounded-full border border-white/10 px-4 py-2.5 transition-all duration-300 ease-out hover:-translate-y-0.5 active:scale-95 ${
+        hasBottomBar ? 'bottom-24' : 'bottom-8'
+      }`}
     >
       <span className="text-xs font-light tracking-wide text-white/70 transition-all duration-300 group-hover:font-semibold group-hover:text-white">
         i wanna go back home
