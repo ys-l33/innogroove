@@ -24,6 +24,17 @@ function pickNextIndex(current: number) {
   return next
 }
 
+function MiniEqualizer() {
+  return (
+    <span aria-hidden className="mini-eq flex h-3 shrink-0 items-end gap-[2px]">
+      <span className="eq-bar eq-bar-1 h-full w-[2px] rounded-full bg-lime" />
+      <span className="eq-bar eq-bar-2 h-full w-[2px] rounded-full bg-pink" />
+      <span className="eq-bar eq-bar-3 h-full w-[2px] rounded-full bg-lime" />
+      <span className="eq-bar eq-bar-4 h-full w-[2px] rounded-full bg-pink" />
+    </span>
+  )
+}
+
 export function AdLyricsRoulette() {
   const [index, setIndex] = useState(0)
   const [bouncing, setBouncing] = useState(false)
@@ -47,7 +58,8 @@ export function AdLyricsRoulette() {
       <p key={index} className="ad-lyrics-fade-in mt-3 text-lg font-semibold leading-snug text-white">
         “{highlightKeywords(lyric.text)}”
       </p>
-      <p className="mt-4 text-right text-xs font-medium text-white/70">
+      <p className="mt-4 flex items-center justify-end gap-1.5 text-xs font-medium text-white/70">
+        <MiniEqualizer />
         {lyric.song} · {lyric.artist}
       </p>
     </button>
