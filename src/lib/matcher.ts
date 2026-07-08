@@ -39,9 +39,11 @@ const RULES: Rule[] = [
   { patterns: ['소울'], apply: (p) => bump(p.genre, 'soul', 2) },
   { patterns: ['샹송'], apply: (p) => bump(p.genre, 'chanson', 3) },
   { patterns: ['포크', '어쿠스틱'], apply: (p) => bump(p.genre, 'folk', 2) },
+  { patterns: ['알앤비', 'r&b', 'rnb', 'r n b'], apply: (p) => bump(p.genre, 'rnb', 3) },
 
   { patterns: ['프랑스', '프렌치', '불어', '샹송'], apply: (p) => { p.lang = 'fr' } },
   { patterns: ['일본', '제이팝', 'j-pop', 'jpop'], apply: (p) => { p.lang = 'ja' } },
+  { patterns: ['한국', '한국어', '가요', 'k-pop', '케이팝'], apply: (p) => { p.lang = 'ko' } },
   { patterns: ['영어', '팝송', '팝'], apply: (p) => { if (!p.lang) p.lang = 'en' } },
   { patterns: ['포르투갈', '브라질'], apply: (p) => { p.lang = 'pt' } },
   { patterns: ['가사 없는', '보컬 없는', '연주곡', '인스트루멘탈'], apply: (p) => { p.lang = 'inst' } },

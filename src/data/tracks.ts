@@ -65,4 +65,11 @@ export const TRACKS: Track[] = [
   { id: 't48', title: 'Funk You Up', artist: 'Slap Bass Diaries', year: 2020, genre: ['funk'], mood: ['funky', 'confident', 'energetic', 'fun'], lang: 'en', tempo: 'fast', energy: 9, versions: ['original', 'remaster', 'live'] },
   { id: 't49', title: 'Office Plant Reverie', artist: 'Morning Index', year: 2023, genre: ['ambient', 'chill'], mood: ['focus', 'calm', 'work', 'hopeful'], lang: 'inst', tempo: 'slow', energy: 2, versions: ['original'] },
   { id: 't50', title: 'Tokyo Skyline Drive', artist: 'Nami Sato', year: 1986, genre: ['city-pop'], mood: ['nostalgic', 'happy', 'night', 'energetic'], lang: 'ja', tempo: 'fast', energy: 7, versions: ['original', 'remaster'] },
+  { id: 't51', title: '밤안개 (Night Fog)', artist: '블루먼데이 (Blue Monday)', year: 2022, genre: ['indie', 'rnb'], mood: ['night', 'calm', 'dreamy', 'nostalgic'], lang: 'ko', tempo: 'slow', energy: 3, versions: ['original'] },
+  { id: 't52', title: '유영 (Drifting)', artist: '모노트랙 (Monotrack)', year: 2021, genre: ['rnb', 'ambient'], mood: ['calm', 'dreamy', 'focus', 'mellow'], lang: 'ko', tempo: 'slow', energy: 2, versions: ['original'] },
+  { id: 't53', title: '시차 (Time Difference)', artist: '로우파이 시티 (Lofi City)', year: 2023, genre: ['lofi', 'indie'], mood: ['nostalgic', 'calm', 'night', 'study'], lang: 'ko', tempo: 'slow', energy: 3, versions: ['original', 'remaster'] },
+  { id: 't54', title: '너의 바다 (Your Ocean)', artist: '웨이브 (WAVE)', year: 2022, genre: ['indie', 'pop'], mood: ['warm', 'happy', 'light', 'sweet'], lang: 'ko', tempo: 'mid', energy: 5, versions: ['original', 'live'] },
+  { id: 't55', title: '공백 (Silence)', artist: '새벽 3시', year: 2023, genre: ['rnb', 'ambient'], mood: ['sad-but-hopeful', 'calm', 'night', 'minimal'], lang: 'ko', tempo: 'slow', energy: 1, versions: ['original'] },
+  { id: 't56', title: '우리가 잃어버린 것들', artist: '계절의 틈', year: 2021, genre: ['indie', 'folk'], mood: ['nostalgic', 'warm', 'sad-but-hopeful', 'gentle'], lang: 'ko', tempo: 'slow', energy: 2, versions: ['original', 'remaster'] },
+  { id: 't57', title: '비행 (Flight)', artist: '서울신스 (Seoul Synth)', year: 2022, genre: ['synth', 'city-pop'], mood: ['night', 'energetic', 'dreamy', 'confident'], lang: 'ko', tempo: 'mid', energy: 6, versions: ['original', 'remaster'] },
 ]
