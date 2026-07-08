@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { Track } from '../data/tracks'
-import { buildTrackLinks, platformLabel, type Platform, type VersionPreference } from '../lib/platformLinks'
+import { buildTrackLinks, platformHomeUrl, platformLabel, type Platform, type VersionPreference } from '../lib/platformLinks'
 import { getPostposition } from '../lib/korean'
 
 interface Props {
@@ -14,10 +14,6 @@ interface Props {
 export function RedirectScreen({ tracks, platform, preference, onBack, onRestart }: Props) {
   const [copied, setCopied] = useState(false)
   const links = buildTrackLinks(tracks, platform, preference)
-
-  function openAll() {
-    links.forEach(({ url }) => window.open(url, '_blank', 'noopener'))
-  }
 
   async function copyList() {
     const text = links.map(({ query }, i) => `${i + 1}. ${query}`).join('\n')
@@ -40,51 +36,24 @@ export function RedirectScreen({ tracks, platform, preference, onBack, onRestart
         {getPostposition(platformLabel(platform))} 이동할 준비가 됐어요
       </h1>
       <p className="mt-2 text-sm text-muted">
-        플랫폼 정책상 로그인 없이 플레이리스트를 바로 만들 수는 없어서, 각 곡의 검색 결과 페이지로 연결해드려요.
-        열린 탭에서 마음에 드는 트랙을 플레이리스트에 추가해주세요.
+        당신의 순간을 위한 플레이리스트가 준비되었어요. 지금 바로 플레이 버튼을 눌러 리듬을 타보세요!
       </p>
 
-      <div className="mt-6 flex flex-wrap gap-2.5">
-        <button
-          type="button"
-          onClick={openAll}
-          className="neon-lime rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-lime-soft"
+      <div className="mt-16 flex flex-1 flex-col items-center justify-center gap-4">
+        <a
+          href={platformHomeUrl(platform)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="neon-lime w-full max-w-xs rounded-full bg-lime px-8 py-5 text-center text-lg font-bold text-black transition hover:scale-105 hover:bg-lime-soft"
         >
-          {links.length}곡 전체 새 탭으로 열기
-        </button>
-        <button
-          type="button"
-          onClick={copyList}
-          className="rounded-full border border-line px-5 py-2.5 text-sm font-medium text-muted transition hover:border-pink/50 hover:text-pink"
-        >
-          {copied ? '복사됨!' : '곡 목록 텍스트로 복사'}
+          {platformLabel(platform)}에서 바로 듣기
+        </a>
+        <button type="button" onClick={copyList} className="text-xs text-muted transition hover:text-white">
+          {copied ? '복사됨!' : '텍스트로 곡 목록 복사하기'}
         </button>
       </div>
 
-      <div className="mt-8 flex flex-col gap-2">
-        {links.map(({ track, query, url }, i) => (
-          <a
-            key={track.id}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-between gap-3 rounded-2xl border border-line bg-surface px-4 py-3 transition hover:border-lime/40"
-          >
-            <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-white">
-                {i + 1}. {query}
-              </p>
-            </div>
-            <span className="shrink-0 text-xs text-lime">열기 →</span>
-          </a>
-        ))}
-      </div>
-
-      <button
-        type="button"
-        onClick={onRestart}
-        className="mt-10 w-fit text-xs text-muted hover:text-white"
-      >
+      <button type="button" onClick={onRestart} className="mt-10 w-fit text-xs text-muted hover:text-white">
         새 플레이리스트 만들러 가기
       </button>
     </div>

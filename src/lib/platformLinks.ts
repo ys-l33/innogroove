@@ -44,6 +44,17 @@ export function buildPlatformSearchUrl(platform: Platform, query: string): strin
   }
 }
 
+const PLATFORM_HOME_URL: Record<Platform, string> = {
+  'youtube-music': 'https://music.youtube.com/',
+  spotify: 'https://open.spotify.com/',
+  'apple-music': 'https://music.apple.com/',
+  melon: 'https://www.melon.com/',
+}
+
+export function platformHomeUrl(platform: Platform): string {
+  return PLATFORM_HOME_URL[platform]
+}
+
 export function buildTrackLinks(tracks: Track[], platform: Platform, preference: VersionPreference) {
   return tracks.map((track) => ({
     track,
