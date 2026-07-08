@@ -24,7 +24,7 @@ export function GlobalHeader({ isHome, onNavigateHome }: Props) {
       </p>
       <h1
         className={`text-center font-extrabold tracking-tight text-white transition-all duration-300 ease-out ${
-          isHome ? 'text-4xl leading-normal sm:text-5xl' : 'text-base leading-tight sm:text-lg'
+          isHome ? 'text-4xl leading-tight sm:text-5xl' : 'text-base leading-tight sm:text-lg'
         }`}
       >
         Find your <FlowText>groove</FlowText>,

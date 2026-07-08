@@ -13,7 +13,11 @@ export function SearchPage({ onCustomSubmit, onCuratedSelect }: Props) {
   return (
     <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-2">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="text-sm text-muted">Type your vibe or pick a curation card below.</p>
+        <p className="text-sm text-muted">
+          지금 당신의 순간을 들려주세요.
+          <br />
+          오늘의 리듬에 딱 맞는 플레이리스트를 만들어드릴게요.
+        </p>
       </div>
 
       <div className="my-10">
