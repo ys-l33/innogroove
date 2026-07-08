@@ -1,6 +1,6 @@
 import type { Track, VersionType } from '../data/tracks'
 
-export type Platform = 'youtube-music' | 'spotify' | 'apple-music'
+export type Platform = 'youtube-music' | 'spotify' | 'apple-music' | 'melon'
 export type VersionPreference = 'original' | 'remaster' | 'live'
 
 export function resolveVersion(track: Track, preference: VersionPreference): VersionType {
@@ -23,6 +23,7 @@ const PLATFORM_LABEL: Record<Platform, string> = {
   'youtube-music': '유튜브 뮤직',
   spotify: '스포티파이',
   'apple-music': '애플 뮤직',
+  melon: '멜론',
 }
 
 export function platformLabel(platform: Platform): string {
@@ -38,6 +39,8 @@ export function buildPlatformSearchUrl(platform: Platform, query: string): strin
       return `https://open.spotify.com/search/${encoded}`
     case 'apple-music':
       return `https://music.apple.com/us/search?term=${encoded}`
+    case 'melon':
+      return `https://www.melon.com/search/total/index.htm?q=${encoded}`
   }
 }
 

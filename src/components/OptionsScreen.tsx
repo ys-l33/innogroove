@@ -12,6 +12,7 @@ const PLATFORM_OPTIONS: { value: Platform; label: string }[] = [
   { value: 'youtube-music', label: '유튜브 뮤직' },
   { value: 'spotify', label: '스포티파이' },
   { value: 'apple-music', label: '애플 뮤직' },
+  { value: 'melon', label: '멜론' },
 ]
 
 interface Props {
@@ -56,7 +57,7 @@ export function OptionsScreen({ tracks, onProceed, onBack }: Props) {
 
       <section className="mt-8">
         <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-pink">이동할 플랫폼</h2>
-        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
           {PLATFORM_OPTIONS.map((opt) => (
             <button
               key={opt.value}
