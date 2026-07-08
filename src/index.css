@@ -166,6 +166,22 @@ select {
   -webkit-backdrop-filter: blur(20px);
 }
 
+.cover-art {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, var(--color-lime), var(--color-pink));
+  background-size:
+    120px 120px,
+    cover;
+  background-repeat: repeat, no-repeat;
+  background-blend-mode: overlay, normal;
+}
+
+.track-preview-fade {
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
 /*
  * Concept tints: painted as background-image layers (not a separate blurred
  * child element) so they always respect the card's own border-radius,

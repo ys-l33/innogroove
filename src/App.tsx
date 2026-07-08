@@ -94,6 +94,7 @@ function App() {
   } else {
     content = (
       <RedirectScreen
+        title={stage.previous.previous.title}
         tracks={stage.tracks}
         platform={stage.platform}
         preference={stage.preference}
