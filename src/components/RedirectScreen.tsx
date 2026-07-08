@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Track } from '../data/tracks'
 import { buildTrackLinks, platformLabel, type Platform, type VersionPreference } from '../lib/platformLinks'
+import { getPostposition } from '../lib/korean'
 
 interface Props {
   tracks: Track[]
@@ -36,7 +37,7 @@ export function RedirectScreen({ tracks, platform, preference, onBack, onRestart
       </button>
 
       <h1 className="text-xl font-semibold text-white sm:text-2xl">
-        {platformLabel(platform)}(으)로 이동할 준비가 됐어요
+        {getPostposition(platformLabel(platform))} 이동할 준비가 됐어요
       </h1>
       <p className="mt-2 text-sm text-muted">
         플랫폼 정책상 로그인 없이 플레이리스트를 바로 만들 수는 없어서, 각 곡의 검색 결과 페이지로 연결해드려요.
