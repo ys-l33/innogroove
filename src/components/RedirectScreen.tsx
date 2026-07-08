@@ -77,7 +77,7 @@ export function RedirectScreen({ title, tracks, platform, preference, onBack, on
             href={platformHomeUrl(platform)}
             target="_blank"
             rel="noopener noreferrer"
-            className="neon-lime w-full max-w-xs rounded-full bg-lime px-8 py-4 text-center text-base font-bold text-black transition hover:scale-105 hover:bg-lime-soft"
+            className="neon-lime mx-auto w-fit rounded-full bg-lime px-10 py-3 text-center text-base font-bold text-black transition hover:scale-105 hover:bg-lime-soft"
           >
             {platformLabel(platform)}에서 바로 듣기
           </a>
